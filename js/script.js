@@ -1,13 +1,14 @@
-let Currentletter = "O" 
+let Currentletter = "X" 
+
 function getTile() {
-    return "<h4>" + Currentletter + "</h4>"
+    return  Currentletter
 }
+
 function toggleLetter() {
-    if (Currentletter === "O") {
-        Currentletter = "X"
-    }
     if (Currentletter === "X") {
-        Currentletter = "O"
+        Currentletter = "B"
+    } else {
+        Currentletter = "X"
     }
 }
 
@@ -73,3 +74,33 @@ $("#button9").click(function() {
     toggleLetter()
 });
 
+function winner(indexA, indexB, indexC) {
+  valA =  $(indexA).val()
+  valB = $(indexB).val()
+  valC = $(indexC).val()
+
+
+ if (valA === Currentletter && valB === Currentletter && valC === Currentletter) {
+     return true 
+ }
+ else {
+     return false
+ }
+
+}
+
+function checkVertical() {
+  let resultA = winner("#button2", "#button5",  "#button8")
+  let resultB = winner("#button1", "#button4", "#button7")
+  let resultC = winner("#button3", "#button6", "#button9")
+  if (resultA == true || resultB == true || resultC == true){
+  return true
+}
+else {
+    return false
+}
+}
+
+function checkHorizontal() {
+    let resultA 
+}
